@@ -1,161 +1,154 @@
 <!DOCTYPE html>
-<html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compactible" content="IE=edge">
-    <meta name="viewport" content="width-device-width, initial-scale=1.0">
-    <title>Personal Portfolio</title>
-    <link rel="stylesheet" href="Style.css">
-    <script src="https://kit.fontawesome.com/60c465864c.js" crossorigin="anonymous"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compactible" content="IE=edge">
+    <meta name="viewport" content="width-device-width, initial-scale=1.0">
+    <title>Personal Portfolio</title>
+    <link rel="stylesheet" href="Style.css">
+    <script src="https://kit.fontawesome.com/60c465864c.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
-</html>
 <body>
 <div id="header">
-    <div class="container">
-        <nav>
-            <a href="#header" class="logo"></a> 
-            
-            <ul>
-                <li><a href="#header">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#services">Services</a></li> 
-                <li><a href="#portfolio">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
+    <div class="container">
+        <nav>
+            <a href="#header" class="logo"></a> 
+            
+            <ul>
+                <li><a href="#header">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li> 
+                <li><a href="#portfolio">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
 
-        <div class="header-text">
+        <div class="header-text">
 
-            <p></p>
+            <p></p>
 
-            <h1>Hi, Im <span>Hannah</span> Jacob <br> </h1>
+            <h1>Hi, Im <span>Hannah</span> Jacob <br> </h1>
 
-        </div>
+        </div>
 
-    </div>
+    </div>
 
 </div>
 </div>
- <!-- About!! -->
+ <div id="about">
+    <div class="container">
+        <div class="row">
+            
+            <div class="about-col-1">
+                                <img src="Gemini_Generated_Image_d7e8jmd7e8jmd7e8.png" alt="Hannah Jacob Professional Portrait">
+            </div>
 
+            <div class="about-col-2">
+                <h1 class="sub-title">About Me</h1>
+                <p>
+                    I am a passionate second-year BCA student specializing in <strong>Artificial Intelligence and Data Science</strong>, actively developing skills in Python, machine learning, and data visualization to transform complex datasets into actionable insights.<br> I enjoy building hands-on projects, from predictive models and data analysis pipelines to web development interfaces, to solidify my understanding and contribute to innovative solutions.<br> </p>
 
-<div id="about">
-    <div class="container">
-        <div class="row">
-            
-            <div class="about-col-1">
-                <img src="Gemini_Generated_Image_d7e8jmd7e8jmd7e8.png" alt="Hannah Jacob Professional Portrait">
-            </div>
+                <div class="tab-titles">
+                    <p class="tab-links active-link" onclick="opentab('skills')">Skills</p>
+                    <p class="tab-links" onclick="opentab('education')">Education</p>
+                    <p class="tab-links" onclick="opentab('interests')">Interests</p> 
+                </div>
 
-            <div class="about-col-2">
-                <h1 class="sub-title">About Me</h1>
-                <p>
-                    I am a passionate second-year BCA student specializing in <strong>Artificial Intelligence and Data Science</strong>, actively developing skills in Python, machine learning, and data visualization to transform complex datasets into actionable insights.<br> I enjoy building hands-on projects, from predictive models and data analysis pipelines to web development interfaces, to solidify my understanding and contribute to innovative solutions.<br> </p>
+                <div class="tab-contents active-tab" id="skills">
+                    <ul>
+                        <li><span>Data Science & ML</span><br>Predictive Modeling, Statistical Analysis, Data Preprocessing (Pandas/NumPy).</li>
+                        <li><span>Programming & Tools</span><br>Advanced Python, SQL Querying, Git/GitHub, Jupyter Notebooks.</li>
+                        <li><span>Web Development</span><br>Front-End Basics: HTML, CSS, JavaScript for project deployment.</li>
+                    </ul>
+                </div>
 
-                <div class="tab-titles">
-                    <p class="tab-links active-link" onclick="opentab('skills')">Skills</p>
-                    <p class="tab-links" onclick="opentab('education')">Education</p>
-                    <p class="tab-links" onclick="opentab('interests')">Interests</p> 
-                </div>
+                <div class="tab-contents" id="education">
+                    <ul>
+                        <li><span>2024 - Current</span><br>BCA in AI & Data Science (Second Year) at DR MGR University Chennai.</li>
+                        <li><span>Schooling</span><br>Higher Secondary Education at Newman Central School, Kerala.</li>
+                       
+                    </ul>
+                </div>
 
-                <div class="tab-contents active-tab" id="skills">
-                    <ul>
-                        <li><span>Data Science & ML</span><br>Predictive Modeling, Statistical Analysis, Data Preprocessing (Pandas/NumPy).</li>
-                        <li><span>Programming & Tools</span><br>Advanced Python, SQL Querying, Git/GitHub, Jupyter Notebooks.</li>
-                        <li><span>Web Development</span><br>Front-End Basics: HTML, CSS, JavaScript for project deployment.</li>
-                    </ul>
-                </div>
-
-                <div class="tab-contents" id="education">
-                    <ul>
-                        <li><span>2024 - Current</span><br>BCA in AI & Data Science (Second Year) at DR MGR University Chennai.</li>
-                        <li><span>Schooling</span><br>Higher Secondary Education at Newman Central School, Kerala.</li>
-                       
-                    </ul>
-                </div>
-
-                <div class="tab-contents" id="interests">
-                    <ul>
-                        <li><span>Creative Focus</span><br>Guitarist: Applying dedication and rhythmic precision outside of coding.</li>
-                        <li><span>Current Learning</span><br>Exploring Deep Learning concepts (CNNs/RNNs) for Image Processing.</li>
-                        <li><span>Future Goal</span><br>Seeking an internship in Data Analytics or ML Engineering.</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
+                <div class="tab-contents" id="interests">
+                    <ul>
+                        <li><span>Creative Focus</span><br>Guitarist: Applying dedication and rhythmic precision outside of coding.</li>
+                        <li><span>Current Learning</span><br>Exploring Deep Learning concepts (CNNs/RNNs) for Image Processing.</li>
+                        <li><span>Future Goal</span><br>Seeking an internship in Data Analytics or ML Engineering.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 </div>
 
 
 
 
- <!--------------------- projects!! ----------------->
-<div id="portfolio">
-    <div class="container">
-        <h1 class="sub-title">My Works</h1>
-        <div class="worklist">
-            <div class="work">
-                <img src="project 1 (1).jpeg">
-                <div class="layer">
-                    <h3>Title 1</h3>
-                    <p>Project 1</p>
-                    <a href="#"><i class="fa-solid fa-link"></i></a>
-                </div>
-            </div>
-             <div class="work">
-                <img src="project 1 (3).jpeg">
-                 <div class="layer">
-                    <h3>Title 2</h3>
-                    <p>project 2</p>
-                    <a href="#"><i class="fa-solid fa-link"></i></a>
-                </div>
-            </div>
-             <div class="work">
-                <img src="project 2.jpeg">
-                 <div class="layer">
-                    <h3>Title 3</h3>
-                    <p>project 3</p>
-                    <a href="#"><i class="fa-solid fa-link"></i></a>
-                </div>
-            </div>
-        </div>
-        <a href="#" class="btn">See more</a>
-    </div>
+ <div id="portfolio">
+    <div class="container">
+        <h1 class="sub-title">My Works</h1>
+        <div class="worklist">
+            <div class="work">
+                                <img src="project 1 (1).jpeg">
+                <div class="layer">
+                    <h3>Title 1</h3>
+                    <p>Project 1</p>
+                    <a href="#"><i class="fa-solid fa-link"></i></a>
+                </div>
+            </div>
+             <div class="work">
+                                <img src="project 1 (3).jpeg">
+                 <div class="layer">
+                    <h3>Title 2</h3>
+                    <p>project 2</p>
+                    <a href="#"><i class="fa-solid fa-link"></i></a>
+                </div>
+            </div>
+             <div class="work">
+                                <img src="project 2.jpeg">
+                 <div class="layer">
+                    <h3>Title 3</h3>
+                    <p>project 3</p>
+                    <a href="#"><i class="fa-solid fa-link"></i></a>
+                </div>
+            </div>
+        </div>
+        <a href="#" class="btn">See more</a>
+    </div>
 </div>
 
-<!--------------------- contact!! ----------------->
 <div id="contact">
-    <div class="container">
-        <div class="row">
-            <div class="contact-left">
-                <h1 class="sub-title">Contact Me</h1>
-                <p>hannahsj123112@gmail.com</p>
-                <p><i class="fa-sharp-duotone fa-solid fa-phone"></i>8714817274</p>
-                <div class="social-icons">
-                    <a href="https://instagram.com/"><i class="fa-brands fa-instagram"></i></a>
-                    <a href="https://linkedin.com/"><i class="fa-brands fa-square-linkedin"></i></a> 
-                </div>
-                <a href="images/Python fro ds.pdf" download class="btn btn2">Download CV</a>
-            </div>
-            <div class="contact-right">
-                <form name="submit-to-google-sheet">
-                    <input type="text" name="Name" placeholder="Your Name" required>
-                    <input type="email" name="Email" placeholder="Your Email" required>
-                    <textarea name="Message" rows="6" placeholder="Your Message"></textarea>
-                    <button type="submit" class="btn btn2">Submit</button>
-                </form>
-                
+    <div class="container">
+        <div class="row">
+            <div class="contact-left">
+                <h1 class="sub-title">Contact Me</h1>
+                <p>hannahsj123112@gmail.com</p>
+                <p><i class="fa-sharp-duotone fa-solid fa-phone"></i>8714817274</p>
+                <div class="social-icons">
+                    <a href="https://instagram.com/"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://linkedin.com/"><i class="fa-brands fa-square-linkedin"></i></a> 
+                </div>
+                                <a href="Python fro ds.pdf" download class="btn btn2">Download CV</a>
+            </div>
+            <div class="contact-right">
+                <form name="submit-to-google-sheet">
+                    <input type="text" name="Name" placeholder="Your Name" required>
+                    <input type="email" name="Email" placeholder="Your Email" required>
+                    <textarea name="Message" rows="6" placeholder="Your Message"></textarea>
+                    <button type="submit" class="btn btn2">Submit</button>
+                </form>
+                
 
 
-            </div>
-        </div>
-    </div>
-    <div class="copyright">
-        <p></p>
-    </div>
+            </div>
+        </div>
+    </div>
+    <div class="copyright">
+        <p></p>
+    </div>
 </div>
 
 
@@ -163,31 +156,31 @@
 
 <script>
 
-    var tablinks = document.getElementsByClassName("tab-links");
-    var tabcontents = document.getElementsByClassName("tab-contents");
+    var tablinks = document.getElementsByClassName("tab-links");
+    var tabcontents = document.getElementsByClassName("tab-contents");
 
-    function opentab(tabname){
-        for(tablink of tablinks){
-            tablink.classList.remove("active-link");
-        }
-        for(tabcontent of tabcontents){
-            tabcontent.classList.remove("active-tab");
-        }
-        event.currentTarget.classList.add("active-link");
-        document.getElementById(tabname).classList.add("active-tab");
-    }
+    function opentab(tabname){
+        for(tablink of tablinks){
+            tablink.classList.remove("active-link");
+        }
+        for(tabcontent of tabcontents){
+            tabcontent.classList.remove("active-tab");
+        }
+        event.currentTarget.classList.add("active-link");
+        document.getElementById(tabname).classList.add("active-tab");
+    }
 
 </script>
 <script>
-  const scriptURL = 'https://script.google.com/macros/s/AKfycbwO2s9BDJAv98MKIKhatBtzlrs2MtlE3xJM_lAOHTy7fJxbbiZLmfi88AxyfuzIgHKI/exec'
-  const form = document.forms['submit-to-google-sheet']
+  const scriptURL = 'https://script.google.com/macros/s/AKfycbwO2s9BDJAv98MKIKhatBtzlrs2MtlE3xJM_lAOHTy7fJxbbiZLmfi88AxyfuzIgHKI/exec'
+  const form = document.forms['submit-to-google-sheet']
 
-  form.addEventListener('submit', e => {
-    e.preventDefault()
-    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-      .then(response => console.log('Success!', response))
-      .catch(error => console.error('Error!', error.message))
-  })
+  form.addEventListener('submit', e => {
+    e.preventDefault()
+    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+      .then(response => console.log('Success!', response))
+      .catch(error => console.error('Error!', error.message))
+  })
 </script>
 
 
@@ -197,4 +190,3 @@
 
 </body>
 </html>
-
