@@ -1,8 +1,8 @@
-/* GLOBAL RESET */
+/* GLOBAL RESET & TYPOGRAPHY */
 *{
     margin: 0;
     padding: 0;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Plus Jakarta Sans', sans-serif;
     box-sizing: border-box;
 }
 
@@ -11,12 +11,15 @@ html{
 }
 
 body{
-    background: #f4f1ea;       /* Cream studio tone */
-    color: #1a1a1a;            /* Dark charcoal */
+    background: #f4f1ea;       /* Warm editorial cream */
+    color: #1a1a1a;            /* Soft black */
+    line-height: 1.6;
 }
 
 .container{
-    padding: 20px 8%;
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 5%;
     position: relative;
     z-index: 2;
 }
@@ -27,49 +30,49 @@ nav{
     align-items: center;
     justify-content: space-between;
     flex-wrap: wrap;
-    padding: 20px 0;
+    padding: 40px 0 20px 0;
 }
 
 .logo {
     font-family: 'Syne', sans-serif;
     font-weight: 800;
-    font-size: 1.2rem;
-    letter-spacing: 0.1em;
+    font-size: 1.1rem;
+    letter-spacing: 0.12em;
     color: #1a1a1a;
     text-decoration: none;
 }
 
 nav ul li{
     display: inline-block;
-    margin: 10px 20px;
+    margin: 10px 24px;
 }
 
 nav ul li a{
     color: #1a1a1a;
     text-decoration: none;
-    font-size: 15px;
-    font-weight: 500;
+    font-size: 0.85rem;
+    font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.08em;
     position: relative;
 }
 
 nav ul li a::after{
     content: "";
     width: 0%;
-    height: 2px;
+    height: 1.5px;
     background: #1a1a1a;
     position: absolute;
     left: 0;
     bottom: -6px;
-    transition: 0.4s;
+    transition: 0.3s ease;
 }
 
 nav ul li a:hover::after{
     width: 100%;
 }
 
-/* HEADER (PAGE 1) - Editorial Minimalist Layout without Background Image */
+/* PAGE 1: HEADER HERO */
 #header{
     width: 100%;
     min-height: 100vh;
@@ -77,11 +80,19 @@ nav ul li a:hover::after{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    border-bottom: 1px solid #d3cecb;
+    border-bottom: 1px solid #e2ddd5;
+}
+
+.header-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 100vh;
+    padding-bottom: 60px;
 }
 
 .header-text{
-    margin-top: 4rem;
+    margin-top: 5rem;
     position: relative;
 }
 
@@ -91,24 +102,23 @@ nav ul li a:hover::after{
     font-size: 0.85rem;
     letter-spacing: 0.15em;
     font-weight: 600;
-    color: #7a7061;
-    margin-bottom: 1.5rem;
+    color: #82786c;
+    margin-bottom: 2rem;
 }
 
 .hero-title {
     font-family: 'Syne', sans-serif;
-    font-size: clamp(4rem, 13vw, 10rem);
+    font-size: clamp(4.5rem, 14vw, 11rem);
     font-weight: 800;
-    line-height: 0.85;
-    letter-spacing: -0.03em;
+    line-height: 0.88;
+    letter-spacing: -0.02em;
     color: #1a1a1a;
-    margin-bottom: 2rem;
+    margin-bottom: 3rem;
 }
 
 .header-bottom-meta {
     border-top: 1px solid #1a1a1a;
-    padding-top: 1.5rem;
-    margin-top: 2rem;
+    padding-top: 2rem;
 }
 
 .hero-tag {
@@ -118,83 +128,88 @@ nav ul li a:hover::after{
     color: #1a1a1a;
 }
 
-/* ABOUT SECTION (PAGE 2) - Background Image Layout */
+/* PAGE 2: ABOUT SECTION (PROPORTIONAL BACKGROUND IMAGE FIX) */
 #about{
     width: 100%;
     min-height: 100vh;
+    /* Uses contain & left bottom to keep portrait completely visible without cropping */
     background-image: url('Gemini_Generated_Image_scocioscocioscoc (1).png');
-    background-size: cover;
+    background-size: contain;
     background-position: left bottom;
     background-repeat: no-repeat;
     background-color: #f4f1ea;
     display: flex;
     align-items: center;
-    padding: 80px 0;
+    padding: 100px 0;
+}
+
+.about-container {
+    width: 100%;
 }
 
 .row{
     display: flex;
     justify-content: space-between;
+    align-items: flex-start;
     flex-wrap: wrap;
     width: 100%;
 }
 
-/* Space reserved for subject image on left side of image */
 .about-col-1{
-    flex-basis: 40%;
+    flex-basis: 42%;
 }
 
-/* Text container positioned over blank space on right */
 .about-col-2{
-    flex-basis: 55%;
-    padding-left: 20px;
+    flex-basis: 53%;
+    padding-left: 30px;
 }
 
 .about-header-block {
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem;
 }
 
 .sub-title{
     font-family: 'Syne', sans-serif;
-    font-size: 3rem;
+    font-size: 3.2rem;
     font-weight: 800;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.04em;
     color: #8c7e6b;
     line-height: 1;
 }
 
 .sub-heading-surname {
     font-family: 'Syne', sans-serif;
-    font-size: 1.8rem;
+    font-size: 2rem;
     font-weight: 700;
-    letter-spacing: 0.12em;
+    letter-spacing: 0.1em;
     color: #1a1a1a;
+    margin-top: 0.3rem;
 }
 
 .about-bio {
-    font-size: 0.95rem;
-    line-height: 1.6;
-    color: #2b2b2b;
-    margin-bottom: 2rem;
-    max-width: 90%;
+    font-size: 1rem;
+    line-height: 1.7;
+    color: #2e2e2e;
+    margin-bottom: 2.5rem;
+    max-width: 95%;
 }
 
 .tab-titles{
     display: flex;
-    margin: 20px 0 25px;
+    margin: 30px 0 30px;
     border-bottom: 1px solid #d3cecb;
-    padding-bottom: 10px;
+    padding-bottom: 12px;
 }
 
 .tab-links{
-    margin-right: 40px;
-    font-size: 0.9rem;
+    margin-right: 45px;
+    font-size: 0.85rem;
     font-weight: 600;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.12em;
     text-transform: uppercase;
     cursor: pointer;
     position: relative;
-    color: #7a7061;
+    color: #82786c;
 }
 
 .tab-links::after{
@@ -204,8 +219,8 @@ nav ul li a:hover::after{
     background: #1a1a1a;
     position: absolute;
     left: 0;
-    bottom: -11px;
-    transition: 0.4s;
+    bottom: -13px;
+    transition: 0.3s ease;
 }
 
 .tab-links.active-link{
@@ -218,9 +233,9 @@ nav ul li a:hover::after{
 
 .tab-contents ul li{
     list-style: none;
-    margin: 14px 0;
-    font-size: 0.9rem;
-    line-height: 1.5;
+    margin: 18px 0;
+    font-size: 0.95rem;
+    line-height: 1.6;
     color: #333;
 }
 
@@ -229,7 +244,7 @@ nav ul li a:hover::after{
     font-size: 0.85rem;
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.06em;
 }
 
 .tab-contents{
@@ -240,20 +255,20 @@ nav ul li a:hover::after{
     display: block;
 }
 
-/* PORTFOLIO */
+/* PORTFOLIO SECTION */
 #portfolio{
-    padding: 80px 0;
+    padding: 120px 0 80px 0;
 }
 
 #portfolio .sub-title {
     color: #1a1a1a;
-    margin-bottom: 2rem;
+    margin-bottom: 3rem;
 }
 
 .worklist{
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 35px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
 }
 
 .work{
@@ -266,13 +281,13 @@ nav ul li a:hover::after{
     width: 100%;
     display: block;
     border-radius: 8px;
-    transition: 0.5s;
+    transition: 0.5s ease;
 }
 
 .layer{
     width: 100%;
     height: 0%;
-    background: rgba(26, 26, 26, 0.85);
+    background: rgba(26, 26, 26, 0.88);
     backdrop-filter: blur(4px);
     position: absolute;
     left: 0;
@@ -283,30 +298,31 @@ nav ul li a:hover::after{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    transition: height 0.5s;
+    transition: height 0.4s ease;
     text-align: center;
 }
 
 .layer h3{
-    font-size: 22px;
+    font-family: 'Syne', sans-serif;
+    font-size: 1.5rem;
     color: #fff;
 }
 
 .layer p {
     color: #d3cecb;
     font-size: 0.9rem;
-    margin-top: 5px;
+    margin-top: 8px;
 }
 
 .layer a{
     margin-top: 20px;
     background: #FFF;
     color: #1a1a1a;
-    width: 50px;
-    height: 50px;
+    width: 48px;
+    height: 48px;
     border-radius: 50%;
     text-align: center;
-    line-height: 50px;
+    line-height: 48px;
     font-size: 18px;
     text-decoration: none;
 }
@@ -322,17 +338,17 @@ nav ul li a:hover::after{
 .btn{
     display: block;
     width: fit-content;
-    margin: 50px auto 0;
-    padding: 12px 35px;
+    margin: 60px auto 0;
+    padding: 14px 40px;
     text-decoration: none;
     color: #1a1a1a;
     border: 1px solid #1a1a1a;
     border-radius: 50px;
     font-size: 0.85rem;
     font-weight: 600;
-    letter-spacing: 0.08em;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
-    transition: 0.3s;
+    transition: 0.3s ease;
 }
 
 .btn:hover{
@@ -340,47 +356,43 @@ nav ul li a:hover::after{
     color: #f4f1ea;
 }
 
-/* CONTACT */
+/* CONTACT SECTION */
 #contact {
-    padding-top: 60px;
-}
-
-#contact .row{
-    align-items: flex-start;
+    padding: 80px 0 0 0;
 }
 
 .contact-left{
-    flex-basis: 35%;
+    flex-basis: 38%;
 }
 
 .contact-right{
-    flex-basis: 60%;
+    flex-basis: 58%;
 }
 
 .contact-left p{
-    margin-top: 20px;
-    font-size: 16px;
+    margin-top: 24px;
+    font-size: 1rem;
 }
 
 .contact-left p i{
     color: #1a1a1a;
     margin-right: 15px;
-    font-size: 20px;
+    font-size: 1.2rem;
 }
 
 .social-icons{
-    margin-top: 25px;
+    margin-top: 30px;
 }
 
 .social-icons a{
-    font-size: 28px;
-    margin-right: 20px;
+    font-size: 1.6rem;
+    margin-right: 22px;
     color: #1a1a1a;
-    transition: 0.3s;
+    transition: 0.3s ease;
 }
 
 .social-icons a:hover{
-    color: #7a7061;
+    color: #82786c;
     transform: translateY(-3px);
 }
 
@@ -389,7 +401,7 @@ nav ul li a:hover::after{
     color: #f4f1ea;
     border: 1px solid #1a1a1a;
     cursor: pointer;
-    margin: 30px 0 0;
+    margin: 35px 0 0;
 }
 
 .btn.btn2:hover {
@@ -401,10 +413,10 @@ form input, form textarea{
     width: 100%;
     background: #eae6dd;
     border: 1px solid #d3cecb;
-    padding: 14px;
-    margin: 10px 0;
+    padding: 16px;
+    margin: 12px 0;
     border-radius: 6px;
-    font-size: 15px;
+    font-size: 0.95rem;
     color: #1a1a1a;
     font-family: inherit;
     outline: none;
@@ -416,18 +428,19 @@ form input:focus, form textarea:focus {
 
 .copyright{
     text-align: center;
-    padding: 25px;
+    padding: 30px;
     background: #eae6dd;
     color: #1a1a1a;
-    margin-top: 60px;
+    margin-top: 80px;
     font-size: 0.85rem;
     letter-spacing: 0.05em;
 }
 
 /* RESPONSIVE DESIGN */
-@media (max-width: 850px){
+@media (max-width: 900px){
     #about {
-        background-image: none; /* Fallback for small screens */
+        background-image: none;
+        padding: 60px 0;
     }
 
     .row{
@@ -444,10 +457,10 @@ form input:focus, form textarea:focus {
     }
 
     .sub-title{
-        font-size: 2.5rem;
+        font-size: 2.6rem;
     }
 
     .hero-title {
-        font-size: 4rem;
+        font-size: 4.5rem;
     }
 }
