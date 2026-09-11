@@ -11,6 +11,15 @@
 </head>
 <body>
 
+<!-- print-style corner registration marks -->
+<span class="corner-mark corner-tl">+</span>
+<span class="corner-mark corner-tr">+</span>
+<span class="corner-mark corner-bl">+</span>
+<span class="corner-mark corner-br">+</span>
+
+<!-- paper grain overlay -->
+<div class="grain-overlay"></div>
+
 <div id="header">
     <div class="container header-container">
         <nav>
@@ -29,9 +38,12 @@
                 <span>DATA ANALYST / AI &amp; DS</span>
                 <span>2026</span>
             </div>
-            <h1 class="hero-title">PORT<br>FOLIO</h1>
+            <div class="hero-title-wrap">
+                <span class="hero-watermark">HJ</span>
+                <h1 class="hero-title">PORT<br>FOLIO</h1>
+            </div>
             <div class="header-bottom-meta">
-                <span class="hero-tag">PYTHON • MACHINE LEARNING • DATA VISUALIZATION</span>
+                <span class="hero-tag">PYTHON &bull; MACHINE LEARNING &bull; DATA VISUALIZATION</span>
             </div>
         </div>
     </div>
@@ -40,22 +52,23 @@
 <!-- About Section -->
 <div id="about">
     <div class="container about-container">
+        <p class="section-index">01 &mdash; About</p>
         <div class="row">
             <!-- Left space reserved for portrait background -->
             <div class="about-col-1"></div>
 
             <div class="about-col-2">
-                <div class="about-header-block">
+                <div class="about-header-block reveal">
                     <h1 class="sub-title">HANNAH</h1>
                     <p class="sub-heading-surname">JACOB</p>
                 </div>
-                
-                <p class="about-bio">
+
+                <p class="about-bio reveal">
                     I am a passionate BCA student specializing in <strong>Artificial Intelligence and Data Science</strong>, actively developing skills in Python, machine learning, and data visualization to transform complex datasets into actionable insights.<br><br>
                     I enjoy building hands-on projects, from predictive models and data analysis pipelines to web development interfaces, to contribute to innovative solutions.
                 </p>
 
-                <div class="tab-titles">
+                <div class="tab-titles reveal">
                     <p class="tab-links active-link" onclick="opentab('skills', event)">Skills</p>
                     <p class="tab-links" onclick="opentab('education', event)">Education</p>
                     <p class="tab-links" onclick="opentab('interests', event)">Interests</p>
@@ -91,9 +104,10 @@
 <!-- Projects -->
 <div id="portfolio">
     <div class="container">
+        <p class="section-index">02 &mdash; Work</p>
         <h1 class="sub-title">My Works</h1>
         <div class="worklist">
-            <div class="work">
+            <div class="work reveal">
                 <img src="project 1 (1).jpeg" alt="Project 1 preview">
                 <div class="layer">
                     <h3>Title 1</h3>
@@ -101,7 +115,7 @@
                     <a href="#"><i class="fa-solid fa-link"></i></a>
                 </div>
             </div>
-            <div class="work">
+            <div class="work reveal">
                 <img src="project 1 (3).jpeg" alt="Project 2 preview">
                 <div class="layer">
                     <h3>Title 2</h3>
@@ -109,7 +123,7 @@
                     <a href="#"><i class="fa-solid fa-link"></i></a>
                 </div>
             </div>
-            <div class="work">
+            <div class="work reveal">
                 <img src="project 2.jpeg" alt="Project 3 preview">
                 <div class="layer">
                     <h3>Title 3</h3>
@@ -126,7 +140,8 @@
 <div id="contact">
     <div class="container">
         <div class="row">
-            <div class="contact-left">
+            <div class="contact-left reveal">
+                <p class="section-index">03 &mdash; Contact</p>
                 <h1 class="sub-title">Contact Me</h1>
                 <p>hannahsj123112@gmail.com</p>
                 <p><i class="fa-sharp-duotone fa-solid fa-phone"></i> 8714817274</p>
@@ -136,7 +151,7 @@
                 </div>
                 <a href="images/Python fro ds.pdf" download class="btn btn2">Download CV</a>
             </div>
-            <div class="contact-right">
+            <div class="contact-right reveal">
                 <form name="submit-to-google-sheet">
                     <input type="text" name="Name" placeholder="Your Name" required>
                     <input type="email" name="Email" placeholder="Your Email" required>
@@ -164,6 +179,30 @@
         }
         evt.currentTarget.classList.add("active-link");
         document.getElementById(tabname).classList.add("active-tab");
+    }
+</script>
+
+<script>
+    // scroll-triggered reveal animation
+    const revealEls = document.querySelectorAll('.reveal');
+    const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting){
+                entry.target.classList.add('in-view');
+                revealObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
+
+    revealEls.forEach(el => revealObserver.observe(el));
+
+    // subtle parallax drift on the hero watermark
+    const watermark = document.querySelector('.hero-watermark');
+    if (watermark){
+        window.addEventListener('scroll', () => {
+            const offset = window.scrollY * 0.12;
+            watermark.style.transform = 'translateY(' + offset + 'px)';
+        }, { passive: true });
     }
 </script>
 
