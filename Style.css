@@ -14,6 +14,62 @@ body{
     background: #f4f1ea;       /* Warm editorial cream */
     color: #1a1a1a;            /* Soft black */
     line-height: 1.6;
+    position: relative;
+}
+
+:root{
+    --accent: #C1442D;         /* editorial red - the one saturated pop */
+    --accent-dim: rgba(193, 68, 45, 0.12);
+    --ease: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ===== SCROLL REVEAL ===== */
+.reveal{
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.9s var(--ease), transform 0.9s var(--ease);
+}
+
+.reveal.in-view{
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.work.reveal:nth-child(1){ transition-delay: 0s; }
+.work.reveal:nth-child(2){ transition-delay: 0.12s; }
+.work.reveal:nth-child(3){ transition-delay: 0.24s; }
+
+/* ===== HERO ENTRANCE ===== */
+@keyframes heroRise{
+    from{ opacity: 0; transform: translateY(22px); }
+    to{ opacity: 1; transform: translateY(0); }
+}
+
+.header-top-meta{
+    animation: heroRise 0.9s var(--ease) both;
+}
+
+.hero-title{
+    animation: heroRise 1s var(--ease) 0.15s both;
+}
+
+.header-bottom-meta{
+    animation: heroRise 0.9s var(--ease) 0.35s both;
+}
+
+.hero-watermark{
+    animation: heroRise 1.2s var(--ease) 0.05s both;
+    will-change: transform;
+}
+
+/* ===== TAB FADE ===== */
+@keyframes tabFadeIn{
+    from{ opacity: 0; transform: translateY(10px); }
+    to{ opacity: 1; transform: translateY(0); }
+}
+
+.tab-contents.active-tab{
+    animation: tabFadeIn 0.45s var(--ease);
 }
 
 .container{
@@ -22,6 +78,47 @@ body{
     padding: 0 5%;
     position: relative;
     z-index: 2;
+}
+
+/* ===== TEXTURE: paper grain overlay ===== */
+.grain-overlay{
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 999;
+    opacity: 0.05;
+    mix-blend-mode: multiply;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='120'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+}
+
+/* ===== print-style corner registration marks ===== */
+.corner-mark{
+    position: fixed;
+    font-size: 18px;
+    font-weight: 300;
+    color: #c9c2b5;
+    z-index: 998;
+    pointer-events: none;
+}
+
+.corner-tl{ top: 18px; left: 18px; }
+.corner-tr{ top: 18px; right: 18px; }
+.corner-bl{ bottom: 18px; left: 18px; }
+.corner-br{ bottom: 18px; right: 18px; }
+
+/* ===== editorial section index numbers ===== */
+.section-index{
+    font-family: 'Syne', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1.4rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 1px solid #e2ddd5;
 }
 
 /* NAVIGATION */
@@ -61,11 +158,19 @@ nav ul li a::after{
     content: "";
     width: 0%;
     height: 1.5px;
-    background: #1a1a1a;
+    background: var(--accent);
     position: absolute;
     left: 0;
     bottom: -6px;
-    transition: 0.3s ease;
+    transition: width 0.4s var(--ease);
+}
+
+nav ul li a{
+    transition: color 0.3s var(--ease);
+}
+
+nav ul li a:hover{
+    color: var(--accent);
 }
 
 nav ul li a:hover::after{
@@ -81,6 +186,8 @@ nav ul li a:hover::after{
     flex-direction: column;
     justify-content: space-between;
     border-bottom: 1px solid #e2ddd5;
+    position: relative;
+    overflow: hidden;
 }
 
 .header-container {
@@ -106,6 +213,29 @@ nav ul li a:hover::after{
     margin-bottom: 2rem;
 }
 
+.header-top-meta span:first-child{
+    color: var(--accent);
+}
+
+/* depth: oversized watermark behind hero title */
+.hero-title-wrap{
+    position: relative;
+}
+
+.hero-watermark{
+    position: absolute;
+    top: -2rem;
+    right: -1rem;
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(8rem, 24vw, 18rem);
+    font-weight: 800;
+    color: transparent;
+    -webkit-text-stroke: 1px #e2ddd5;
+    z-index: 0;
+    user-select: none;
+    line-height: 1;
+}
+
 .hero-title {
     font-family: 'Syne', sans-serif;
     font-size: clamp(4.5rem, 14vw, 11rem);
@@ -114,11 +244,24 @@ nav ul li a:hover::after{
     letter-spacing: -0.02em;
     color: #1a1a1a;
     margin-bottom: 3rem;
+    position: relative;
+    z-index: 1;
 }
 
 .header-bottom-meta {
     border-top: 1px solid #1a1a1a;
     padding-top: 2rem;
+    position: relative;
+}
+
+.header-bottom-meta::before{
+    content: "";
+    position: absolute;
+    top: -1px;
+    left: 0;
+    width: 60px;
+    height: 2px;
+    background: var(--accent);
 }
 
 .hero-tag {
@@ -132,7 +275,6 @@ nav ul li a:hover::after{
 #about{
     width: 100%;
     min-height: 100vh;
-    /* Uses contain & left bottom to keep portrait completely visible without cropping */
     background-image: url('Gemini_Generated_Image_scocioscocioscoc (1).png');
     background-size: contain;
     background-position: left bottom;
@@ -216,7 +358,7 @@ nav ul li a:hover::after{
     content: "";
     width: 0;
     height: 2px;
-    background: #1a1a1a;
+    background: var(--accent);
     position: absolute;
     left: 0;
     bottom: -13px;
@@ -275,13 +417,20 @@ nav ul li a:hover::after{
     border-radius: 8px;
     position: relative;
     overflow: hidden;
+    box-shadow: 0 12px 30px rgba(26, 26, 26, 0.08);
+    transition: transform 0.5s var(--ease), box-shadow 0.5s var(--ease);
+}
+
+.work:hover{
+    transform: translateY(-8px);
+    box-shadow: 0 24px 40px rgba(26, 26, 26, 0.14);
 }
 
 .work img{
     width: 100%;
     display: block;
     border-radius: 8px;
-    transition: 0.5s ease;
+    transition: transform 0.6s var(--ease);
 }
 
 .layer{
@@ -316,8 +465,8 @@ nav ul li a:hover::after{
 
 .layer a{
     margin-top: 20px;
-    background: #FFF;
-    color: #1a1a1a;
+    background: var(--accent);
+    color: #fff;
     width: 48px;
     height: 48px;
     border-radius: 50%;
@@ -348,12 +497,14 @@ nav ul li a:hover::after{
     font-weight: 600;
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    transition: 0.3s ease;
+    transition: background 0.35s var(--ease), border-color 0.35s var(--ease), color 0.35s var(--ease), transform 0.35s var(--ease);
 }
 
 .btn:hover{
-    background: #1a1a1a;
+    background: var(--accent);
+    border-color: var(--accent);
     color: #f4f1ea;
+    transform: translateY(-3px);
 }
 
 /* CONTACT SECTION */
@@ -375,7 +526,7 @@ nav ul li a:hover::after{
 }
 
 .contact-left p i{
-    color: #1a1a1a;
+    color: var(--accent);
     margin-right: 15px;
     font-size: 1.2rem;
 }
@@ -392,7 +543,7 @@ nav ul li a:hover::after{
 }
 
 .social-icons a:hover{
-    color: #82786c;
+    color: var(--accent);
     transform: translateY(-3px);
 }
 
@@ -405,8 +556,9 @@ nav ul li a:hover::after{
 }
 
 .btn.btn2:hover {
-    background: transparent;
-    color: #1a1a1a;
+    background: var(--accent);
+    border-color: var(--accent);
+    color: #fff;
 }
 
 form input, form textarea{
@@ -423,7 +575,7 @@ form input, form textarea{
 }
 
 form input:focus, form textarea:focus {
-    border-color: #1a1a1a;
+    border-color: var(--accent);
 }
 
 .copyright{
@@ -462,5 +614,13 @@ form input:focus, form textarea:focus {
 
     .hero-title {
         font-size: 4.5rem;
+    }
+
+    .hero-watermark{
+        display: none;
+    }
+
+    .corner-mark{
+        display: none;
     }
 }
