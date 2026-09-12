@@ -137,6 +137,9 @@ nav ul li a:hover::after{
     width: 100%;
     min-height: 100vh;
     background: #f4f1ea;
+    background-image: radial-gradient(#d8d2c5 1px, transparent 1px);
+    background-size: 28px 28px;
+    background-position: -10px -10px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -154,7 +157,7 @@ nav ul li a:hover::after{
 }
 
 .header-text{
-    margin-top: 5rem;
+    margin-top: 3.5rem;
     position: relative;
 }
 
@@ -165,7 +168,7 @@ nav ul li a:hover::after{
     letter-spacing: 0.15em;
     font-weight: 600;
     color: #82786c;
-    margin-bottom: 2rem;
+    margin-bottom: 2.2rem;
 }
 
 .header-top-meta span:first-child{
@@ -557,6 +560,6 @@ form input:focus, form textarea:focus {
     }
 
     .hero-title {
-        font-size: 4.5rem;
+        font-size: 3rem;
     }
 }
