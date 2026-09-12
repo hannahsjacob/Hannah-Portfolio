@@ -22,17 +22,11 @@
                 <li><a href="#portfolio">Projects</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
-
-            <div class="nav-cta">
-                <a href="images/Python fro ds.pdf" target="_blank" rel="noopener" class="nav-btn">View Resume</a>
-                <a href="images/Python fro ds.pdf" download class="nav-btn nav-btn-solid">Download Resume</a>
-            </div>
         </nav>
 
         <div class="header-text">
             <div class="header-top-meta">
                 <span>DATA ANALYST / AI &amp; DS</span>
-                <span>2026</span>
             </div>
             <h1 class="hero-title">HANNAH<br>JACOB</h1>
             <div class="header-bottom-meta">
@@ -185,59 +179,6 @@
     }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
 
     revealEls.forEach(el => revealObserver.observe(el));
-</script>
-
-<script>
-    // real smooth scrolling: eases mouse-wheel scroll toward a target instead
-    // of jumping instantly, for an actual gliding feel (desktop only -
-    // touch devices already have native momentum scrolling, so this is
-    // skipped there to avoid fighting the OS's own smooth touch scroll)
-    (function(){
-        var isTouch = matchMedia('(hover: none), (pointer: coarse)').matches;
-        if (isTouch) return;
-
-        var current = window.scrollY;
-        var target = window.scrollY;
-        var ticking = false;
-        var maxScroll = function(){
-            return document.documentElement.scrollHeight - window.innerHeight;
-        };
-
-        function render(){
-            current += (target - current) * 0.11;
-            if (Math.abs(target - current) < 0.4){
-                current = target;
-                ticking = false;
-            } else {
-                requestAnimationFrame(render);
-            }
-            window.scrollTo(0, current);
-        }
-
-        window.addEventListener('wheel', function(e){
-            e.preventDefault();
-            target += e.deltaY;
-            target = Math.max(0, Math.min(target, maxScroll()));
-            if (!ticking){
-                ticking = true;
-                requestAnimationFrame(render);
-            }
-        }, { passive: false });
-
-        window.addEventListener('resize', function(){
-            target = Math.min(target, maxScroll());
-        });
-
-        // keep in sync if the browser scrolls us directly (e.g. anchor links)
-        document.querySelectorAll('a[href^="#"]').forEach(function(link){
-            link.addEventListener('click', function(){
-                setTimeout(function(){
-                    current = window.scrollY;
-                    target = window.scrollY;
-                }, 700);
-            });
-        });
-    })();
 </script>
 
 <script>
