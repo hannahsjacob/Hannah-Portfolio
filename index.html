@@ -7,18 +7,9 @@
     <title>Hannah Jacob | Portfolio</title>
     <link rel="stylesheet" href="Style.css">
     <script src="https://kit.fontawesome.com/60c465864c.js" crossorigin="anonymous"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600&family=Syne:wght@600;700;800&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&display=swap" rel="stylesheet">
 </head>
 <body>
-
-<!-- print-style corner registration marks -->
-<span class="corner-mark corner-tl">+</span>
-<span class="corner-mark corner-tr">+</span>
-<span class="corner-mark corner-bl">+</span>
-<span class="corner-mark corner-br">+</span>
-
-<!-- paper grain overlay -->
-<div class="grain-overlay"></div>
 
 <div id="header">
     <div class="container header-container">
@@ -31,6 +22,11 @@
                 <li><a href="#portfolio">Projects</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
+
+            <div class="nav-cta">
+                <a href="images/Python fro ds.pdf" target="_blank" rel="noopener" class="nav-btn">View Resume</a>
+                <a href="images/Python fro ds.pdf" download class="nav-btn nav-btn-solid">Download Resume</a>
+            </div>
         </nav>
 
         <div class="header-text">
@@ -38,10 +34,7 @@
                 <span>DATA ANALYST / AI &amp; DS</span>
                 <span>2026</span>
             </div>
-            <div class="hero-title-wrap">
-                <span class="hero-watermark">HJ</span>
-                <h1 class="hero-title">PORT<br>FOLIO</h1>
-            </div>
+            <h1 class="hero-title">HANNAH<br>JACOB</h1>
             <div class="header-bottom-meta">
                 <span class="hero-tag">PYTHON &bull; MACHINE LEARNING &bull; DATA VISUALIZATION</span>
             </div>
@@ -52,15 +45,14 @@
 <!-- About Section -->
 <div id="about">
     <div class="container about-container">
-        <p class="section-index">01 &mdash; About</p>
         <div class="row">
             <!-- Left space reserved for portrait background -->
             <div class="about-col-1"></div>
 
             <div class="about-col-2">
                 <div class="about-header-block reveal">
-                    <h1 class="sub-title">HANNAH</h1>
-                    <p class="sub-heading-surname">JACOB</p>
+                    <h1 class="sub-title">ABOUT</h1>
+                    <p class="sub-heading-surname">Me</p>
                 </div>
 
                 <p class="about-bio reveal">
@@ -104,7 +96,6 @@
 <!-- Projects -->
 <div id="portfolio">
     <div class="container">
-        <p class="section-index">02 &mdash; Work</p>
         <h1 class="sub-title">My Works</h1>
         <div class="worklist">
             <div class="work reveal">
@@ -141,7 +132,6 @@
     <div class="container">
         <div class="row">
             <div class="contact-left reveal">
-                <p class="section-index">03 &mdash; Contact</p>
                 <h1 class="sub-title">Contact Me</h1>
                 <p>hannahsj123112@gmail.com</p>
                 <p><i class="fa-sharp-duotone fa-solid fa-phone"></i> 8714817274</p>
@@ -195,15 +185,59 @@
     }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
 
     revealEls.forEach(el => revealObserver.observe(el));
+</script>
 
-    // subtle parallax drift on the hero watermark
-    const watermark = document.querySelector('.hero-watermark');
-    if (watermark){
-        window.addEventListener('scroll', () => {
-            const offset = window.scrollY * 0.12;
-            watermark.style.transform = 'translateY(' + offset + 'px)';
-        }, { passive: true });
-    }
+<script>
+    // real smooth scrolling: eases mouse-wheel scroll toward a target instead
+    // of jumping instantly, for an actual gliding feel (desktop only -
+    // touch devices already have native momentum scrolling, so this is
+    // skipped there to avoid fighting the OS's own smooth touch scroll)
+    (function(){
+        var isTouch = matchMedia('(hover: none), (pointer: coarse)').matches;
+        if (isTouch) return;
+
+        var current = window.scrollY;
+        var target = window.scrollY;
+        var ticking = false;
+        var maxScroll = function(){
+            return document.documentElement.scrollHeight - window.innerHeight;
+        };
+
+        function render(){
+            current += (target - current) * 0.11;
+            if (Math.abs(target - current) < 0.4){
+                current = target;
+                ticking = false;
+            } else {
+                requestAnimationFrame(render);
+            }
+            window.scrollTo(0, current);
+        }
+
+        window.addEventListener('wheel', function(e){
+            e.preventDefault();
+            target += e.deltaY;
+            target = Math.max(0, Math.min(target, maxScroll()));
+            if (!ticking){
+                ticking = true;
+                requestAnimationFrame(render);
+            }
+        }, { passive: false });
+
+        window.addEventListener('resize', function(){
+            target = Math.min(target, maxScroll());
+        });
+
+        // keep in sync if the browser scrolls us directly (e.g. anchor links)
+        document.querySelectorAll('a[href^="#"]').forEach(function(link){
+            link.addEventListener('click', function(){
+                setTimeout(function(){
+                    current = window.scrollY;
+                    target = window.scrollY;
+                }, 700);
+            });
+        });
+    })();
 </script>
 
 <script>
