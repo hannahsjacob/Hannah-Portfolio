@@ -69,9 +69,9 @@ body{
 }
 
 .container{
-    max-width: 1600px;
+    max-width: min(94vw, 1900px);
     margin: 0 auto;
-    padding: 0 4%;
+    padding: 0 3%;
     position: relative;
     z-index: 2;
 }
