@@ -220,8 +220,8 @@ nav ul li a:hover::after{
     width: 100%;
     min-height: 100vh;
     background-image: url('Gemini_Generated_Image_scocioscocioscoc (1).png');
-    background-size: contain;
-    background-position: left bottom;
+    background-size: auto 80%;
+    background-position: 5% bottom;
     background-repeat: no-repeat;
     background-color: #f4f1ea;
     display: flex;
