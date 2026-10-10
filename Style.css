@@ -29,7 +29,8 @@ body{
 .reveal{
     opacity: 0;
     transform: translateY(28px);
-    transition: opacity 0.9s var(--ease), transform 0.9s var(--ease);
+    transition: opacity 1s var(--ease) var(--reveal-delay, 0s), transform 1s var(--ease) var(--reveal-delay, 0s);
+    will-change: opacity, transform;
 }
 
 .reveal.in-view{
@@ -39,6 +40,9 @@ body{
 
 .work:nth-child(2){ --reveal-delay: 0.12s; }
 .work:nth-child(3){ --reveal-delay: 0.24s; }
+.about-bio{ --reveal-delay: 0.1s; }
+.tab-titles{ --reveal-delay: 0.2s; }
+.contact-right{ --reveal-delay: 0.15s; }
 
 /* ===== HERO ENTRANCE ===== */
 @keyframes heroRise{
@@ -90,18 +94,29 @@ nav{
     flex-wrap: wrap;
     padding: 10px 30px;
     border-radius: 999px;
-    border: 1px solid transparent;
-    background: transparent;
-    transition: background 0.4s var(--ease), border-color 0.4s var(--ease), box-shadow 0.4s var(--ease);
 }
 
-/* added by a tiny script once you scroll, so the menu stays readable over the content */
-nav.scrolled{
+/* the cream bar behind the menu: invisible on the front page, fades in smoothly once you scroll */
+nav::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    border-radius: inherit;
     background: rgba(244, 241, 234, 0.92);
     -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
-    border-color: rgba(26, 26, 26, 0.08);
+    border: 1px solid rgba(26, 26, 26, 0.08);
     box-shadow: 0 8px 24px rgba(26, 26, 26, 0.08);
+    opacity: 0;
+    transition: opacity 0.5s var(--ease);
+}
+
+nav.scrolled::before{
+    opacity: 1;
 }
 
 .logo {
@@ -185,7 +200,7 @@ nav ul li a:hover::after{
 .header-top-meta {
     display: flex;
     justify-content: space-between;
-    font-size: 0.85rem;
+    font-size: 1.05rem;
     letter-spacing: 0.15em;
     font-weight: 600;
     color: #82786c;
@@ -203,7 +218,7 @@ nav ul li a:hover::after{
 .hero-title {
     font-family: 'Fraunces', serif;
     font-optical-sizing: auto;
-    font-size: clamp(2.75rem, 7vw, 5.5rem);
+    font-size: clamp(3.25rem, 9vw, 7rem);
     font-weight: 600;
     line-height: 1;
     letter-spacing: -0.01em;
@@ -230,24 +245,21 @@ nav ul li a:hover::after{
 }
 
 .hero-tag {
-    font-size: 0.85rem;
+    font-size: 0.95rem;
     letter-spacing: 0.12em;
     font-weight: 600;
     color: #1a1a1a;
 }
 
-/* PAGE 2: ABOUT SECTION (PROPORTIONAL BACKGROUND IMAGE FIX) */
+/* PAGE 2: ABOUT SECTION - photo on the left, text next to it, both the same height */
 #about{
+    --photo-h: clamp(520px, 82vh, 900px);   /* photo size: change these numbers to make it bigger/smaller */
     width: 100%;
     min-height: 100vh;
-    background-image: url('Gemini_Generated_Image_scocioscocioscoc (1).png');
-    background-size: auto 80vh;   /* vh keeps the photo the same size no matter how tall the text gets */
-    background-position: 5% bottom;
-    background-repeat: no-repeat;
-    background-color: #f4f1ea;
+    background-color: #f9f5ea;   /* same cream as the portrait's own background, so the photo has no visible edges */
     display: flex;
-    align-items: center;
-    padding: 120px 0 140px;
+    align-items: flex-end;
+    padding: 120px 0 0;
 }
 
 .about-container {
@@ -262,15 +274,37 @@ nav ul li a:hover::after{
     width: 100%;
 }
 
+#about .row{
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: flex-end;
+    gap: 40px;
+}
+
 .about-col-1{
-    flex-basis: 42%;
+    flex: 0 0 auto;
+    /* the photo runs off the left edge of the screen (no hard cut line); width keeps the same visible size */
+    margin-left: calc(50% - 50vw);
+    width: calc(min(var(--photo-h) * 0.98, 46vw) + 50vw - 50%);
+    height: var(--photo-h);
+    overflow: hidden;
+}
+
+.about-col-1 img{
+    display: block;
+    height: 100%;
+    width: auto;
+    max-width: none;
 }
 
 .about-col-2{
-    flex-basis: 53%;
+    flex: 1 1 0;
+    min-width: 0;
+    min-height: var(--photo-h);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;   /* text block sits level with the middle of the photo */
     padding-left: 30px;
-    position: relative;
-    top: 12vh;                 /* moves the About writing lower; raise/lower this number to taste */
 }
 
 .about-header-block {
@@ -419,7 +453,7 @@ nav ul li a:hover::after{
     left: 0;
     bottom: 0;
     width: 100%;
-    height: 0%;
+    height: 100%;
     padding: 0 26px;
     overflow: hidden;
     background: linear-gradient(160deg, rgba(31, 111, 120, 0.94) 0%, rgba(14, 58, 66, 0.96) 100%);
@@ -428,11 +462,12 @@ nav ul li a:hover::after{
     justify-content: center;
     align-items: center;
     text-align: center;
-    transition: height 0.45s var(--ease);
+    transform: translateY(101%);
+    transition: transform 0.55s var(--ease);
 }
 
 .work:hover .layer{
-    height: 100%;
+    transform: translateY(0);
 }
 
 .layer h3{
@@ -500,8 +535,15 @@ nav ul li a:hover::after{
     padding: 80px 0 0 0;
 }
 
+#contact .row{
+    align-items: stretch;
+}
+
 .contact-left{
     flex-basis: 38%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
 }
 
 .contact-right{
@@ -509,23 +551,40 @@ nav ul li a:hover::after{
 }
 
 .contact-left p{
-    margin-top: 24px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-top: 22px;
     font-size: 1rem;
 }
 
 .contact-left p i{
+    flex: 0 0 28px;
+    width: 28px;
+    text-align: left;
     color: var(--accent);
-    margin-right: 15px;
     font-size: 1.2rem;
+}
+
+.contact-left p a{
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.contact-left p a:hover{
+    color: var(--accent);
 }
 
 .social-icons{
     margin-top: 30px;
+    margin-bottom: 32px;
 }
 
 .social-icons a{
-    font-size: 1.6rem;
-    margin-right: 22px;
+    display: inline-block;
+    font-size: 2.8rem;
+    line-height: 1;
     color: #1a1a1a;
     transition: 0.3s ease;
 }
@@ -550,6 +609,7 @@ nav ul li a:hover::after{
 }
 
 form input, form textarea{
+    display: block;
     width: 100%;
     background: #eae6dd;
     border: 1px solid #d3cecb;
@@ -560,6 +620,22 @@ form input, form textarea{
     color: #1a1a1a;
     font-family: inherit;
     outline: none;
+}
+
+form textarea{
+    resize: vertical;
+}
+
+form .btn.btn2{
+    margin: 18px 0 0;
+}
+
+form input:first-child{
+    margin-top: 0;
+}
+
+.contact-left .btn.btn2{
+    margin-top: auto;          /* Download CV sits level with the Submit button on the right */
 }
 
 form input:focus, form textarea:focus {
@@ -579,12 +655,16 @@ form input:focus, form textarea:focus {
 /* RESPONSIVE DESIGN */
 @media (max-width: 900px){
     #about {
-        background-image: none;
-        padding: 60px 0;
+        min-height: auto;
+        align-items: flex-start;
+        padding: 100px 0 60px;
     }
 
-    .row{
+    .row,
+    #about .row{
         flex-direction: column;
+        flex-wrap: wrap;
+        gap: 0;
     }
 
     .about-col-1 {
@@ -597,7 +677,9 @@ form input:focus, form textarea:focus {
     }
 
     .about-col-2{
-        top: 0;
+        flex: none;
+        min-height: 0;
+        display: block;
     }
 
     .sub-title{
@@ -605,7 +687,7 @@ form input:focus, form textarea:focus {
     }
 
     .hero-title {
-        font-size: 3rem;
+        font-size: 3.5rem;
     }
 }
 
