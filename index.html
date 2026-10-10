@@ -11,19 +11,20 @@
 </head>
 <body>
 
+<!-- Navigation (fixed, stays visible while scrolling) -->
+<nav class="site-nav">
+    <a href="#header" class="logo">HSJ</a>
+
+    <ul>
+        <li><a href="#header">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#portfolio">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+</nav>
+
 <div id="header">
     <div class="container header-container">
-        <nav>
-            <a href="#header" class="logo">HSJ</a>
-
-            <ul>
-                <li><a href="#header">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#portfolio">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-
         <div class="header-text">
             <div class="header-top-meta">
                 <span>ASPIRING DATA SCIENTIST</span>
@@ -51,7 +52,7 @@
 
                 <p class="about-bio reveal">
                     I am a passionate BCA student specializing in <strong>Artificial Intelligence and Data Science</strong>, actively developing skills in Python, machine learning, and data visualization to transform complex datasets into actionable insights.<br><br>
-                    I enjoy exploring real-world problems through technology. I’m eager to apply my skills, learn from industry professionals, and contribute to impactful projects in Data Science and AI.
+                    I enjoy building hands-on projects, from predictive models and data analysis pipelines to web development interfaces, to contribute to innovative solutions.
                 </p>
 
                 <div class="tab-titles reveal">
@@ -62,24 +63,23 @@
 
                 <div class="tab-contents active-tab" id="skills">
                     <ul>
-                       
-                        <li><span>Programming &amp; Tools</span><br>Python, R, SQL, Git/GitHub, Jupyter Notebook, VS Code, PowerBI.</li>
-                         <li><span>Data Science &amp; ML</span><br>Data Analysis, Predictive Modelling, Data Preprocessing (Pandas/NumPy).</li>
+                        <li><span>Data Science &amp; ML</span><br>Predictive Modeling, Statistical Analysis, Data Preprocessing (Pandas/NumPy).</li>
+                        <li><span>Programming &amp; Tools</span><br>Advanced Python, SQL Querying, Git/GitHub, Jupyter Notebooks.</li>
                         <li><span>Web Development</span><br>Front-End Basics: HTML, CSS, JavaScript for project deployment.</li>
                     </ul>
                 </div>
 
                 <div class="tab-contents" id="education">
                     <ul>
-                        <li><span>2024 &ndash; Present</span><br>BCA AI &amp; Data Science  <br> Dr. MGR Educational and Research Institute, Chennai.</li>
-                        <li><span>Schooling</span><br>Higher Secondary Education <br> Newman Central School, Adoor, Kerala.</li>
+                        <li><span>2024 &ndash; Present</span><br>BCA in AI &amp; Data Science at Dr. MGR Educational and Research Institute, Chennai.</li>
+                        <li><span>Schooling</span><br>Higher Secondary Education at Newman Central School, Kerala.</li>
                     </ul>
                 </div>
 
                 <div class="tab-contents" id="interests">
                     <ul>
-                        <li><span>Creative Focus</span><br>Playing Guitar, Singing, Painting, and exploring artistic expression through music and visual art </li>
-                        <li><span>Current Learning</span><br> IBM Machine Learning for Data science</li>
+                        <li><span>Creative Focus</span><br>Guitarist: Applying dedication and rhythmic precision outside of coding.</li>
+                        <li><span>Current Learning</span><br>Exploring Deep Learning concepts (CNNs/RNNs) for Image Processing.</li>
                         <li><span>Future Goal</span><br>Seeking an internship in Data Analytics or ML Engineering.</li>
                     </ul>
                 </div>
@@ -94,31 +94,46 @@
         <h1 class="sub-title">My Works</h1>
         <div class="worklist">
             <div class="work reveal">
-                <img src="project 1 (1).jpeg" alt="Project 1 preview">
-                <div class="layer">
-                    <h3>Title 1</h3>
-                    <p>Project 1</p>
-                    <a href="#"><i class="fa-solid fa-link"></i></a>
+                <div class="work-thumb">
+                    <img src="project1.jpg" alt="Restaurant Analytics Dashboard preview">
+                    <div class="layer">
+                        <a href="https://github.com/hannahsjacob/Restaurant-Analysis-Dashboard-" target="_blank" rel="noopener" aria-label="View Restaurant Analytics Dashboard on GitHub"><i class="fa-solid fa-link"></i></a>
+                    </div>
+                </div>
+                <div class="work-info">
+                    <h3>Restaurant Analytics Dashboard</h3>
+                    <p>Developed an interactive dashboard to analyse Bangalore restaurant data, uncovering trends in customer ratings, pricing, and popular cuisines using Python, Pandas, Streamlit, and Plotly.</p>
+                    <a href="https://github.com/hannahsjacob/Restaurant-Analysis-Dashboard-" target="_blank" rel="noopener" class="work-link">View on GitHub &rarr;</a>
                 </div>
             </div>
             <div class="work reveal">
-                <img src="project 1 (3).jpeg" alt="Project 2 preview">
-                <div class="layer">
-                    <h3>Title 2</h3>
-                    <p>Project 2</p>
-                    <a href="#"><i class="fa-solid fa-link"></i></a>
+                <div class="work-thumb">
+                    <img src="project2.jpg" alt="AI Insight Evaluation preview">
+                    <div class="layer">
+                        <a href="https://github.com/hannahsjacob/AI-Insight-Evaluation" target="_blank" rel="noopener" aria-label="View AI Insight Evaluation on GitHub"><i class="fa-solid fa-link"></i></a>
+                    </div>
+                </div>
+                <div class="work-info">
+                    <h3>AI Insight Evaluation</h3>
+                    <p>Analysed AI-generated responses for accuracy, clarity, and relevance using Python and SQL, with visualizations to track evaluation metrics and response quality.</p>
+                    <a href="https://github.com/hannahsjacob/AI-Insight-Evaluation" target="_blank" rel="noopener" class="work-link">View on GitHub &rarr;</a>
                 </div>
             </div>
             <div class="work reveal">
-                <img src="project 2.jpeg" alt="Project 3 preview">
-                <div class="layer">
-                    <h3>Title 3</h3>
-                    <p>Project 3</p>
-                    <a href="#"><i class="fa-solid fa-link"></i></a>
+                <div class="work-thumb">
+                    <img src="project3.jpg" alt="Salary Prediction Tool preview">
+                    <div class="layer">
+                        <a href="https://github.com/hannahsjacob/AI-Salary-Predictor" target="_blank" rel="noopener" aria-label="View Salary Prediction Tool on GitHub"><i class="fa-solid fa-link"></i></a>
+                    </div>
+                </div>
+                <div class="work-info">
+                    <h3>Salary Prediction Tool</h3>
+                    <p>Built a Linear Regression model to predict salaries based on years of experience, applying data preprocessing and model evaluation using Python, Pandas, and Scikit-learn.</p>
+                    <a href="https://github.com/hannahsjacob/AI-Salary-Predictor" target="_blank" rel="noopener" class="work-link">View on GitHub &rarr;</a>
                 </div>
             </div>
         </div>
-        <a href="#" class="btn">See more</a>
+        <a href="https://github.com/hannahsjacob" target="_blank" rel="noopener" class="btn">More on GitHub</a>
     </div>
 </div>
 
@@ -128,7 +143,7 @@
         <div class="row">
             <div class="contact-left reveal">
                 <h1 class="sub-title">Contact Me</h1>
-                <p>hannahsj.jacob@gmail.com</p>
+                <p>hannahsj123112@gmail.com</p>
                 <p><i class="fa-sharp-duotone fa-solid fa-phone"></i> 8714817274</p>
                 <div class="social-icons">
                     <a href="https://instagram.com/"><i class="fa-brands fa-instagram"></i></a>
