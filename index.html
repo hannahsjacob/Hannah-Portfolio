@@ -94,42 +94,27 @@
         <h1 class="sub-title">My Works</h1>
         <div class="worklist">
             <div class="work reveal">
-                <div class="work-thumb">
-                    <img src="project1.jpg" alt="Restaurant Analytics Dashboard preview">
-                    <div class="layer">
-                        <a href="https://github.com/hannahsjacob/Restaurant-Analysis-Dashboard-" target="_blank" rel="noopener" aria-label="View Restaurant Analytics Dashboard on GitHub"><i class="fa-solid fa-link"></i></a>
-                    </div>
-                </div>
-                <div class="work-info">
+                <img src="project1.jpg" alt="Restaurant Analytics Dashboard preview">
+                <div class="layer">
                     <h3>Restaurant Analytics Dashboard</h3>
                     <p>Developed an interactive dashboard to analyse Bangalore restaurant data, uncovering trends in customer ratings, pricing, and popular cuisines using Python, Pandas, Streamlit, and Plotly.</p>
-                    <a href="https://github.com/hannahsjacob/Restaurant-Analysis-Dashboard-" target="_blank" rel="noopener" class="work-link">View on GitHub &rarr;</a>
+                    <a href="https://github.com/hannahsjacob/Restaurant-Analysis-Dashboard-" target="_blank" rel="noopener" aria-label="Open Restaurant Analytics Dashboard on GitHub"><i class="fa-solid fa-link"></i></a>
                 </div>
             </div>
             <div class="work reveal">
-                <div class="work-thumb">
-                    <img src="project2.jpg" alt="AI Insight Evaluation preview">
-                    <div class="layer">
-                        <a href="https://github.com/hannahsjacob/AI-Insight-Evaluation" target="_blank" rel="noopener" aria-label="View AI Insight Evaluation on GitHub"><i class="fa-solid fa-link"></i></a>
-                    </div>
-                </div>
-                <div class="work-info">
+                <img src="project2.jpg" alt="AI Insight Evaluation preview">
+                <div class="layer">
                     <h3>AI Insight Evaluation</h3>
                     <p>Analysed AI-generated responses for accuracy, clarity, and relevance using Python and SQL, with visualizations to track evaluation metrics and response quality.</p>
-                    <a href="https://github.com/hannahsjacob/AI-Insight-Evaluation" target="_blank" rel="noopener" class="work-link">View on GitHub &rarr;</a>
+                    <a href="https://github.com/hannahsjacob/AI-Insight-Evaluation" target="_blank" rel="noopener" aria-label="Open AI Insight Evaluation on GitHub"><i class="fa-solid fa-link"></i></a>
                 </div>
             </div>
             <div class="work reveal">
-                <div class="work-thumb">
-                    <img src="project3.jpg" alt="Salary Prediction Tool preview">
-                    <div class="layer">
-                        <a href="https://github.com/hannahsjacob/AI-Salary-Predictor" target="_blank" rel="noopener" aria-label="View Salary Prediction Tool on GitHub"><i class="fa-solid fa-link"></i></a>
-                    </div>
-                </div>
-                <div class="work-info">
+                <img src="project3.jpg" alt="Salary Prediction Tool preview">
+                <div class="layer">
                     <h3>Salary Prediction Tool</h3>
                     <p>Built a Linear Regression model to predict salaries based on years of experience, applying data preprocessing and model evaluation using Python, Pandas, and Scikit-learn.</p>
-                    <a href="https://github.com/hannahsjacob/AI-Salary-Predictor" target="_blank" rel="noopener" class="work-link">View on GitHub &rarr;</a>
+                    <a href="https://github.com/hannahsjacob/AI-Salary-Predictor" target="_blank" rel="noopener" aria-label="Open Salary Prediction Tool on GitHub"><i class="fa-solid fa-link"></i></a>
                 </div>
             </div>
         </div>
@@ -195,6 +180,14 @@
     }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
 
     revealEls.forEach(el => revealObserver.observe(el));
+
+    // give the menu a background once you scroll
+    const siteNav = document.querySelector('.site-nav');
+    function updateNav(){
+        siteNav.classList.toggle('scrolled', window.scrollY > 40);
+    }
+    window.addEventListener('scroll', updateNav, { passive: true });
+    updateNav();
 </script>
 
 <script>
